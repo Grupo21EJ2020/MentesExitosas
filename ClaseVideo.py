@@ -25,4 +25,14 @@ class Video:
     def url (self, valor):
         self.__url = valor
     
+    @property
+    def FechaPublicacion (self):
+        return self.__FechaPuclicacion
+    
+    def Informacion (self):
+        print (f"{'ID Video' :<10}{'Nombre' :<20}{'URL' :<10}{'Fecha de Publicacion':<20}")
+        print (f"{self.__IdVideo:<10}{self.__Nombre:<20}{self.__url:<10}{self.__FechaPuclicacion:<20}")
+
+    
+    
 
