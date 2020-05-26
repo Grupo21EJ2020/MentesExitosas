@@ -38,6 +38,21 @@ class Video:
         archivotxt.write (self.__IdVideo + '|' + self.__Nombre + '|'+ self.__url +'|' + self.__FechaPuclicacion  )
         archivotxt.close()
 
+    @classmethod
+    def EliminarVideo(self, archivotxt, IdVideo):
+        listaVideos = []
+        Archivo1 = open(archivotxt, encoding ='utf8')
+        for clave in Archivo1:
+            listaVideos.append (clave) 
+            if IdVideo == clave[0]:
+                listaVideos.remove(n)
+            OtroArchivo = open (archivotxt,'w', encoding = 'utf8')
+            for g in listaVideos:
+                OtroArchivo.write(g)
+            OtroArchivo.close()
+        Archivo1.close()
+
+
     
     
     
