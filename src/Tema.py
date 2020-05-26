@@ -14,3 +14,7 @@ class Tema:
     @Nombre.setter
     def Nombre(self,valor):
         self.__Nombre=valor
+
+    def ConsultarInfo(self):
+        print(f"{'Id Tema' :<10}{'Nombre':<20}")
+        print(f"{self.__idTema: <10}{self.__Nombre}")
