@@ -32,6 +32,30 @@ def main():
             for renglon in archivo:
                 print(f"Datos del renglon: {renglon}")
             archivo.close()
+
+     if menuInicial == 3:
+        submenuTema = int(input("1) Agregar\n2) Borrar\n3) Modificar\n4) Consultar\nRespuesta:  "))
+        if submenuTema== 1:
+            idTema = int(input("Cual es el id del tema?  "))
+            Nombre = str(input("Cual es el nombre del tema?  "))
+            temaNuevo = Tema(idTema,Nombre)
+            print(temaNuevo)
+            temaNuevo.agregarTema()
+
+    if menuInicial == 4:
+        submenuVideo = int(input("1) Agregar\n2) Borrar\n3) Modificar\n4) Consultar : ")) 
+        if submenuVideo == 1:
+            IdVideo = int(input("Cual es el ID del Video: "))
+            Nombre = str(input("Cual es el Nombre del Video: "))
+            url = str(input("Cual es la url del Video: "))
+            FechaPublicacion = str(input("Cual es la Fecha de Publicacion del Video: "))
+            nuevoVideo = Video(IdVideo, Nombre, url, FechaPublicacion)  
+            print(nuevoVideo)
+            nuevoVideo.agregarVideo ()
         
-            
+        elif submenuVideo == 4:
+            archivoVideo = open("ClaseVideo.txt","r")
+            for renglon in archivoVideo:
+                print(f'Datos del Video: {renglon}')
+            archivoVideo.close()
 main()

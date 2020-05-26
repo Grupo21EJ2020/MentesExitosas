@@ -8,6 +8,10 @@ class Video:
     @property 
     def IdVideo (self):
         return self.__IdVideo
+
+    @IdVideo.setter
+    def IdVideo (self, valor):
+        self.__IdVideo = valor
     
     @property
     def Nombre (self):
@@ -28,14 +32,18 @@ class Video:
     @property
     def FechaPublicacion (self):
         return self.__FechaPuclicacion
+
+    @FechaPublicacion.setter 
+    def FechaPublicacion (self, valor ):
+        self.__FechaPublicacion = valor 
     
     def Informacion (self):
         print (f"{'ID Video' :<10}{'Nombre' :<20}{'URL' :<10}{'Fecha de Publicacion':<20}")
-        print (f"{self.__IdVideo:<10}{self.__Nombre:<20}{self.__url:<10}{self.__FechaPuclicacion:<20}")
+        print (f"{self.__IdVideo:<10}{self.__Nombre:<20}{self.__url:<10}{self.__FechaPublicacion:<20}")
 
     def VideoEnArchivo(self):
         archivotxt = open ('./archivos/ videos.txt','a', encoding='utf8')
-        archivotxt.write (self.__IdVideo + '|' + self.__Nombre + '|'+ self.__url +'|' + self.__FechaPuclicacion  )
+        archivotxt.write (self.__IdVideo + '|' + self.__Nombre + '|'+ self.__url +'|' + self.__FechaPublicacion  )
         archivotxt.close()
 
     @classmethod
