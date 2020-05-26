@@ -40,11 +40,29 @@ def main():
     if menuInicial == 3:
         submenuTema = int(input("1) Agregar\n2) Borrar\n3) Modificar\n4) Consultar\nRespuesta:  "))
         if submenuTema== 1:
-            idTema = int(input("Cual es el id del tema?  "))
+            idTema = str(input("Cual es el id del tema?  "))
             Nombre = str(input("Cual es el nombre del tema?  "))
             temaNuevo = Tema(idTema,Nombre)
             print(temaNuevo)
             temaNuevo.agregarTema()
+        elif submenuTema == 2:
+            idTema  = str(input("Digita el id del tema que quieres borrar:  "))
+            ListaTemas = []
+            archivoTema = open("Temas.txt", "r")
+            for n in archivoTema:
+                ListaTemas.append(n)
+                if idTema== n[0]:
+                    ListaTemas.remove(n)
+                archivoTema2 = open("Temas2.txt","w")
+                for g in ListaTemas:
+                    archivoTema2.write(g)
+                archivoTema2.close()
+            archivoTema.close()
+            archivoorigen = open("Temas2.txt","r")
+            archivodestino = open("Temas.txt","w")
+            archivodestino.write(archivoorigen.read())
+            archivoorigen.close()
+            archivodestino.close()
             
         elif submenuTema == 4:
             archivoTema = open("Temas.txt","r")
@@ -64,10 +82,23 @@ def main():
             nuevoVideo.agregarVideo()
         
         if submenuVideo == 2:
-            IdVideo = int(input("Dime el ID del Video que quieras borrar: "))
+            IdVideo = (input("Dime el ID del Video que quieras borrar: "))
             ListaVideo = []
-            archivoVideo = open("")
-
+            archivoVideo = open("ClaseVideo.txt","w")
+            for n in archivoVideo:
+                ListaVideo.append(n)
+                if IdVideo == n[0]:
+                    ListaVideo.remove(n)
+                archivoVideo2 = open ("ClaseVideo2.txt", "w")
+                for g in ListaVideo:
+                    archivoVideo2.write(g)
+                archivoVideo2.close()
+            archivoVideo.close()
+            archivoorigen = open("ClaseVideo2.txt","r")
+            archivodestino = open("ClaseVideo.txt","w")
+            archivodestino.write(archivoorigen.read())
+            archivoorigen.close()
+            archivodestino.close()
         
         elif submenuVideo == 4:
             archivoVideo = open("ClaseVideo.txt","r")
