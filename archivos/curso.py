@@ -1,16 +1,42 @@
 class Curso():
-    def __init__(self, idcurso, nombre, descripcion, idEmpleado):
-        self.__idcurso = idcurso
+    def __init__(self, idCurso, nombre, descripcion, idEmpleado):
+        self.__idCurso = idCurso
         self.__nombre = nombre
         self.__descripcion = descripcion
-        self.__idempleado = idEmpleado
+        self.__idEmpleado = idEmpleado
 
     @property
-    def idcurso(self):
-        return self.__idcurso
+    def idCurso(self):
+        return self.__idCurso
 
-    @idcurso.setter
-    def idcurso(self,other):
-        self.__idcurso = other
+    @idCurso.setter
+    def idCurso(self,other):
+        self.__idCurso = other
 
-    
+    @property
+    def nombre(self):
+        return self.__nombre
+
+    @nombre.setter
+    def nombre(self,other):
+        self.__nombre = other
+
+    @property
+    def descripcion(self):
+        return self.__descripcion
+
+    @descripcion.setter
+    def descripcion(self,other):
+        self.__descripcion = other
+
+    @property
+    def idEmpleado(self):
+        return self.__idEmpleado
+
+    @idEmpleado.setter
+    def idEmpleado(self,other):
+        self.__idEmpleado = other
+
+    def __str__(self):
+        return f"El id del curso es: {self.__idCurso}\nEl nombre del curso es: {self.__nombre}\nLa descripcion del curso es: {self.__descripcion}\nEl id del Empleado es {self.__idEmpleado}"
+        
