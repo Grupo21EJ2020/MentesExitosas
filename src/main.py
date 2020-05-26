@@ -26,7 +26,7 @@ def main():
      if menuInicial == 3:
         submenuTema = int(input("1) Agregar\n2) Borrar\n3) Modificar\n4) Consultar\nRespuesta:  "))
         if submenuTema== 1:
-            idTema = str(input("Cual es el id del tema?  "))
+            idTema = int(input("Cual es el id del tema?  "))
             Nombre = str(input("Cual es el nombre del tema?  "))
             temaNuevo = Tema(idTema,Nombre)
             print(temaNuevo)
