@@ -1,6 +1,6 @@
 from curso import Curso
 from ClaseVideo import Video
-from tema import Tema
+from Tema import Tema
 def main():
     menuInicial = int(input("1) Empleados\n2) Cursos\n3) Temas\n4) Videos\n5) Temas Asignados\n6) Administracion de Videos\nRespuesta:  "))
     if menuInicial == 2:
@@ -19,7 +19,7 @@ def main():
             archivo = open("cursos.txt", "r")
             for n in archivo:
                 ListaCursos.append(n)
-                if id == n[0]:
+                if idCurso == n[0]:
                     ListaCursos.remove(n)
                 archivo2 = open("cursos2.txt","w")
                 for g in ListaCursos:
