@@ -31,7 +31,7 @@ class Video:
     
     @property
     def FechaPublicacion (self):
-        return self.__FechaPuclicacion
+        return self.__FechaPublicacion
 
     @FechaPublicacion.setter 
     def FechaPublicacion (self, valor ):
