@@ -14,8 +14,18 @@ def main():
             print(cursoNuevo)
             cursoNuevo.agregarCurso()
         elif submenuCurso == 2:
-            claveCurso = int(input("Ingresa el id del curso que quieres borrar: "))
-            claveCurso.eliminarCurso()
+            idCurso = str(input("Digita el id del curso que quieres borrar:  "))
+            Lista = []
+            archivo = open("cursos.txt")
+            for n in archivo:
+                Lista.append(n)
+                if idCurso == n[0]:
+                    Lista.remove(n)
+                archivo2 = open("cursos2.txt","w")
+                for g in Lista:
+                    archivo2.write(g)
+                archivo2.close()
+            archivo.close()
 
         elif submenuCurso == 4:
             archivo = open("cursos.txt","r")

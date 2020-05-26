@@ -42,19 +42,6 @@ class Curso():
     
     def agregarCurso(self):
         archivo = open("cursos.txt","a")
-        archivo.write(self.__idCurso + "|" + self.__nombre + "|" + self.__descripcion + "|" + self.__idEmpleado + "\n")
-        archivo.close()
-
-    def eliminarCurso(self, claveCurso):
-        Lista = []
-        archivo = open("cursos.txt")
-        for n in archivo:
-            Lista.append(n)
-            if clave == n[0]:
-                Lista.remove(n)
-            archivo2 = open(archivo,"w")
-            for g in Lista:
-                archivo2.write(g)
-            archivo2.close()
+        archivo.write(self.__idCurso + " | " + self.__nombre + " | " + self.__descripcion + " | " + self.__idEmpleado + "\n")
         archivo.close()
 
