@@ -12,5 +12,15 @@ def main():
             cursoNuevo = Curso(idCurso,nombre,descripcion,idEmpleado)
             print(cursoNuevo)
             cursoNuevo.agregarCurso()
+        elif submenuCurso == 2:
+            claveCurso = int(input("Ingresa el id del curso que quieres borrar: "))
+            claveCurso.eliminarCurso()
+
+        elif submenuCurso == 4:
+            archivo = open("cursos.txt","r")
+            for renglon in archivo:
+                print(f"Datos del renglon: {renglon}")
+            archivo.close()
+        
             
 main()
