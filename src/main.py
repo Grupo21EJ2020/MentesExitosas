@@ -19,7 +19,7 @@ def main():
             archivo = open("cursos.txt", "r")
             for n in archivo:
                 ListaCursos.append(n)
-                if id == n[0]:
+                if idCurso == n[0]:
                     ListaCursos.remove(n)
                 archivo2 = open("cursos2.txt","w")
                 for g in ListaCursos:
@@ -64,10 +64,23 @@ def main():
             nuevoVideo.agregarVideo()
         
         if submenuVideo == 2:
-            IdVideo = int(input("Dime el ID del Video que quieras borrar: "))
+            IdVideo = (input("Dime el ID del Video que quieras borrar: "))
             ListaVideo = []
-            archivoVideo = open("")
-
+            archivoVideo = open("ClaseVideo.txt","w")
+            for n in archivoVideo:
+                ListaVideo.append(n)
+                if IdVideo == n[0]:
+                    ListaVideo.remove(n)
+                archivoVideo2 = open ("ClaseVideo2.txt", "w")
+                for g in ListaVideo:
+                    archivoVideo2.write(g)
+                archivoVideo2.close()
+            archivoVideo.close()
+            archivoorigen = open("ClaseVideo2.txt","r")
+            archivodestino = open("ClaseVideo.txt","w")
+            archivodestino.write(archivoorigen.read())
+            archivoorigen.close()
+            archivodestino.close()
         
         elif submenuVideo == 4:
             archivoVideo = open("ClaseVideo.txt","r")
