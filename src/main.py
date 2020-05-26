@@ -23,6 +23,15 @@ def main():
                 print(f"Datos del renglon: {renglon}")
             archivo.close()
 
+     if menuInicial == 3:
+        submenuTema = int(input("1) Agregar\n2) Borrar\n3) Modificar\n4) Consultar\nRespuesta:  "))
+        if submenuTema== 1:
+            idTema = int(input("Cual es el id del tema?  "))
+            Nombre = str(input("Cual es el nombre del tema?  "))
+            temaNuevo = Tema(idTema,Nombre)
+            print(temaNuevo)
+            temaNuevo.agregarTema()
+
     if menuInicial == 4:
         submenuVideo = int(input("1) Agregar\n2) Borrar\n3) Modificar\n4) Consultar : ")) 
         if submenuVideo == 1:
