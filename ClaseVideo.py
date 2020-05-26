@@ -35,7 +35,7 @@ class Video:
 
     def VideoEnArchivo(self):
         archivotxt = open ('./archivos/ videos.txt','a', encoding='utf8')
-        archivotxt.write (self.__IdVideo + '|' + self.__Nombre + '|'+ self.__url +'|' + self.__FechaPuclicacion + )
+        archivotxt.write (self.__IdVideo + '|' + self.__Nombre + '|'+ self.__url +'|' + self.__FechaPuclicacion  )
         archivotxt.close()
 
     
