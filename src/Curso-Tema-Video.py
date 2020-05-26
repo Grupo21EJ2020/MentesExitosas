@@ -1,16 +1,16 @@
-class Administracionvideo:
-    def _init_(self, IdAdministracionvideo, IdCursotema, IdVideo):
-        self.__IdAdministracionvideo = IdAdministracionvideo
+class CursoTemaVideo:
+    def _init_(self, IdCursoTemaVideo, IdCursotema, IdVideo):
+        self.__IdCursoTemaVideo = IdCursoTemaVideo
         self.__IdCursotema = IdCursotema
         self.__IdVideo = IdVideo
     
     @property 
-    def IdAdministracionvideo (self):
+    def IdCursoTemaVideo (self):
         return self.__IdAdministracionvideo 
     
-    @IdAdministracionvideo.setter
+    @IdCursoTemaVideo.setter
     def IdAdministracionvideo (self, valor):
-        self.__IdAdministracionvideo = valor
+        self.__IdCursoTemaVideo = valor
     
     @property 
     def IdCursotema (self):

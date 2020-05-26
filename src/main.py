@@ -45,6 +45,12 @@ def main():
             temaNuevo = Tema(idTema,Nombre)
             print(temaNuevo)
             temaNuevo.agregarTema()
+            
+        elif submenuTema == 4:
+            archivoTema = open("Temas.txt","r")
+            for renglon in archivoTema:
+                print(f"Datos del Tema: {renglon}")
+            archivoTema.close()
 
     if menuInicial == 4:
         submenuVideo = int(input("1) Agregar\n2) Borrar\n3) Modificar\n4) Consultar : ")) 
