@@ -18,11 +18,11 @@ def main():
             ListaCursos = []
             archivo = open("cursos.txt", "r")
             for n in archivo:
-                Lista.append(n)
+                ListaCursos.append(n)
                 if id == n[0]:
                     ListaCursos.remove(n)
                 archivo2 = open("cursos2.txt","w")
-                for g in Lista:
+                for g in ListaCursos:
                     archivo2.write(g)
                 archivo2.close()
             archivo.close()
