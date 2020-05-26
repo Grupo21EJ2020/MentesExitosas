@@ -52,6 +52,7 @@ class Video:
             OtroArchivo.close()
         Archivo1.close()
 
+    
 
     
     
