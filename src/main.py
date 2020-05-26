@@ -16,24 +16,28 @@ def main():
         elif submenuCurso == 2:
             idCurso = str(input("Digita el id del curso que quieres borrar:  "))
             Lista = []
-            archivo = open("cursos.txt")
+            archivo = open("cursos.txt", "r")
             for n in archivo:
                 Lista.append(n)
-                if idCurso == n[0]:
+                if id == n[0]:
                     Lista.remove(n)
                 archivo2 = open("cursos2.txt","w")
                 for g in Lista:
                     archivo2.write(g)
                 archivo2.close()
             archivo.close()
-
+            archivoorigen = open("cursos2.txt","r")
+            archivodestino = open("cursos.txt","w")
+            archivodestino.write(archivoorigen.read())
+            archivoorigen.close()
+            archivodestino.close()
         elif submenuCurso == 4:
             archivo = open("cursos.txt","r")
             for renglon in archivo:
                 print(f"Datos del renglon: {renglon}")
             archivo.close()
 
-     if menuInicial == 3:
+    if menuInicial == 3:
         submenuTema = int(input("1) Agregar\n2) Borrar\n3) Modificar\n4) Consultar\nRespuesta:  "))
         if submenuTema== 1:
             idTema = int(input("Cual es el id del tema?  "))
@@ -51,7 +55,7 @@ def main():
             FechaPublicacion = str(input("Cual es la Fecha de Publicacion del Video: "))
             nuevoVideo = Video(IdVideo, Nombre, url, FechaPublicacion)  
             print(nuevoVideo)
-            nuevoVideo.agregarVideo ()
+            nuevoVideo.agregarVideo()
         
         elif submenuVideo == 4:
             archivoVideo = open("ClaseVideo.txt","r")
