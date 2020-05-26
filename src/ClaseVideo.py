@@ -1,9 +1,9 @@
 class Video:
     def __init__(self, IdVideo, Nombre, url, FechaPublicacion):
-        self.IdVideo = IdVideo
-        self.Nombre = Nombre
-        self.url = url
-        self.FechaPublicacion = FechaPublicacion
+        self.__IdVideo = IdVideo
+        self.__Nombre = Nombre
+        self.__url = url
+        self.__FechaPublicacion = FechaPublicacion
     
     @property 
     def IdVideo (self):
@@ -51,6 +51,8 @@ class Video:
                 OtroArchivo.write(g)
             OtroArchivo.close()
         Archivo1.close()
+
+    
 
     
 
