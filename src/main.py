@@ -33,4 +33,10 @@ def main():
             nuevoVideo = Video(IdVideo, Nombre, url, FechaPublicacion)  
             print(nuevoVideo)
             nuevoVideo.agregarVideo ()
+        
+        elif submenuVideo == 4:
+            archivoVideo = open("ClaseVideo.txt","r")
+            for renglon in archivoVideo:
+                print(f'Datos del Video: {renglon}')
+            archivoVideo.close()
 main()
