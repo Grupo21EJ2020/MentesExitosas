@@ -39,4 +39,10 @@ class Curso():
 
     def __str__(self):
         return f"El id del curso es: {self.__idCurso}\nEl nombre del curso es: {self.__nombre}\nLa descripcion del curso es: {self.__descripcion}\nEl id del Empleado es {self.__idEmpleado}"
-        
+    
+    def agregarCurso(self):
+        archivo = open("cursos.txt","a")
+        archivo.write(self.__idCurso + "|" + self.__nombre + "|" + self.__descripcion + "|" + self.__idEmpleado + "\n")
+        archivo.close()
+
+
