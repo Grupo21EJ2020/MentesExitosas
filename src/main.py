@@ -23,5 +23,6 @@ def main():
             VideoNuevo = Video( IdVideo, Nombre, url, FechaPublicacion)
             print(VideoNuevo)
             nuevoVideo.agregarVideo()
+        
             
 main()
