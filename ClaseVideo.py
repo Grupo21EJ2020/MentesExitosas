@@ -42,7 +42,7 @@ class Video:
     def EliminarVideo(self, archivotxt, IdVideo):
         listaVideos = []
         Archivo1 = open(archivotxt, encoding ='utf8')
-        for clave in Archivo1:
+        for clave in Archivo1: 
             listaVideos.append (clave) 
             if IdVideo == clave[0]:
                 listaVideos.remove(n)
