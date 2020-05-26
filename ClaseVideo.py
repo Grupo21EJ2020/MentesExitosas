@@ -33,10 +33,12 @@ class Video:
         print (f"{'ID Video' :<10}{'Nombre' :<20}{'URL' :<10}{'Fecha de Publicacion':<20}")
         print (f"{self.__IdVideo:<10}{self.__Nombre:<20}{self.__url:<10}{self.__FechaPuclicacion:<20}")
 
-def VideoEnArchivo(self):
-    archivotxt = open ('./archivos/ videos.txt','a', encoding='utf8')
-    archivotxt.write (self.__IdVideo + '|' + self.__Nombre + '|'+ self.__url +'|' + self.__FechaPuclicacion + )
-    archivotxt.close()
+    def VideoEnArchivo(self):
+        archivotxt = open ('./archivos/ videos.txt','a', encoding='utf8')
+        archivotxt.write (self.__IdVideo + '|' + self.__Nombre + '|'+ self.__url +'|' + self.__FechaPuclicacion + )
+        archivotxt.close()
+
+    
     
     
 
