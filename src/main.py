@@ -63,6 +63,12 @@ def main():
             print(nuevoVideo)
             nuevoVideo.agregarVideo()
         
+        if submenuVideo == 2:
+            IdVideo = int(input("Dime el ID del Video que quieras borrar: "))
+            ListaVideo = []
+            archivoVideo = open("")
+
+        
         elif submenuVideo == 4:
             archivoVideo = open("ClaseVideo.txt","r")
             for renglon in archivoVideo:
