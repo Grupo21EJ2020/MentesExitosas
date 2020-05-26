@@ -24,13 +24,14 @@ def main():
     if menuInicial == 4:
         menuVideo = int(input("1) Agregar\n 2)Borrar\n 3)Modificar\n 4)Consultar"))
         if menuVideo == 1:
-            IdVideo = str(input("Cual es el ID del Video: "))
+            IdVideo = int(input("Cual es el ID del Video: "))
             Nombre = str (input("Cual es el nombre del Video: "))
             url = str (input ("Cual es la URL del Video: "))
             FechaPublicacion = (input ("Cual es la Fecha de Publicacion del Video: "))
             VideoNuevo = Video( IdVideo, Nombre, url, FechaPublicacion)
             print(VideoNuevo)
             nuevoVideo.agregarVideo()
-        
-            
+
+
+                   
 main()
