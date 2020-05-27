@@ -1,3 +1,5 @@
+from ClaseVideo import Video
+objetovideo = Video() 
 class CursoTemaVideo:
     def _init_(self, IdCursoTemaVideo, IdCursotema, IdVideo):
         self.__IdCursoTemaVideo = IdCursoTemaVideo
@@ -9,7 +11,7 @@ class CursoTemaVideo:
         return self.__IdAdministracionvideo 
     
     @IdCursoTemaVideo.setter
-    def IdAdministracionvideo (self, valor):
+    def IdCursoTemaVideo (self, valor):
         self.__IdCursoTemaVideo = valor
     
     @property 
@@ -27,6 +29,16 @@ class CursoTemaVideo:
     @IdVideo.setter
     def IdVideo (self, valor):
         self.__IdVideo = valor
+
+
+    def agregarCursoTemaVideo (self):
+        archivo = open("CursoTemaVideo", "a")
+        archivo.write(self.__IdCursoTemaVideo + "|" + IdCursotema + "|" + objetovideo.IdVideo + "\n")
+        archivo.close()
+
+    
+
+    
     
    
 
