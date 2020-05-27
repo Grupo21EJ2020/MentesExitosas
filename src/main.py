@@ -104,6 +104,29 @@ def main():
                 archivodestino.write(archivoorigen.read())
                 archivoorigen.close()
                 archivodestino.close()
+
+            elif submenuTema == 3:
+                idTema = str(input("Digita el id del Tema que quieres modificar:  "))
+                ListaTemas= []
+                archivoTema= open("./archivos/Temas.txt")
+                for n in archivoTema:
+                    ListaTemas.append(n)
+                    if idTema == n[0]:
+                        nombreNv = str(input("Digite el Nombre del nuevo Tema:  "))
+                        idTemaNv = str(input("Digite el id del nuevo Tema:  "))
+                        T = idTemaNv + " | " + nombreNv + "\n"
+                        ListaTemas.remove(n)
+                        ListaTemas.append(T)
+                    archivoTema2 = open("./archivos/Temas2.txt","w")
+                    for x in ListaTemas:
+                        archivoTema2.write(x)
+                    archivoTema2.close()
+                archivoTema.close()
+                archivoorigen = open("./archivos/Temas2.txt","r")
+                archivodestino = open("./archivos/Temas.txt","w")
+                archivodestino.write(archivoorigen.read())
+                archivoorigen.close()
+                archivodestino.close()
                 
             elif submenuTema == 4:
                 archivoTema = open("./archivos/Temas.txt","r")
