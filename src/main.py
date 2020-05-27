@@ -326,4 +326,58 @@ def main():
                 archivo.close()
                 input("Presione enter para continuar...")
                 borrar()
+        
+        elifmenuInicial == 6:
+            submenuVideo = int(input("1) Agregar¥n2) Borrar¥n3) Modificar¥n4) Consultar : ")) 
+            ifsubmenuVideo == 1:
+                IdVideo = str(input("Cual es el ID del Video: "))
+                Nombre = str(input("Cual es el Nombre del Video: "))
+                url = str(input("Cual es la url del Video: "))
+                FechaPublicacion = str(input("Cual es la Fecha de Publicacion del Video: "))
+                nuevoVideo = Video(IdVideo, Nombre, url, FechaPublicacion)   
+                print(nuevoVideo)
+                nuevoVideo.agregarVideo()
+            elifsubmenuVideo == 2:
+                IdVideo = (input("Dime el ID del Video que quieras borrar: "))
+                ListaVideo = []
+                archivoVideo = open("./archivos/ClaseVideo.txt","w")
+                forn inarchivoVideo:
+                    ListaVideo.append(n)ifIdVideo == n[0]:
+                        ListaVideo.remove(n)archivoVideo2 = open("./archivos/ClaseVideo2.txt", "w")
+                        forg inListaVideo:
+                            archivoVideo2.write(g)
+                            archivoVideo2.close()
+                            archivoVideo.close()
+                            archivoorigen = open("./archivos/ClaseVideo2.txt","r")
+                            archivodestino = open("./archivos/ClaseVideo.txt","w")
+                            archivodestino.write(archivoorigen.read())
+                            archivoorigen.close()
+                            archivodestino.close()
+                elifsubmenuVideo == 3:
+                    IdVideo = str(input("Escribe el ID del video que deseas modificar :"))
+                    ListaVideo = []
+                    archivoVideo = open("./archivos/ClaseVideo.txt")
+                    forn inarchivoVideo:
+                        ListaVideo.append(n)ifIdVideo == n[0]:
+                            nuevoVideo = str(input("Escriba el nombre del nuevo video: "))
+                            urlNuevo = str(input("Escribe la nueva URL del video: "))
+                            FechaPublicacionNuevo = str(input("Escribe la fecha del nuevo video: "))
+                            V = IdVideo +"|"+ nuevoVideo +"|"+ urlNuevo + "|"+ FechaPublicacionNuevo + "¥n"
+                            ListaVideo.remove(n)
+                            ListaVideo.append(V)
+                            archivoVideo2 = open("./archivos/ClaseVideo2.txt","w")
+                            forx inListaVideo:
+                                archivoVideo2.write(x)
+                                archivoVideo2.close()
+                                archivoVideo.close()
+                                archivoorigen = open("./archivos/ClaseVideo2.txt", "r")
+                                archivodestino = open("./archivos/ClaseVideo.txt","w")
+                                archivodestino.write(archivoorigen.read())
+                                archivoorigen.close()elifsubmenuVideo == 4:
+                                    archivoVideo = open("./archivos/ClaseVideo.txt","r")
+                                    forrenglon inarchivoVideo:print(f'Datos del Video: {renglon}')
+                                    archivoVideo.close()
+                                    elifmenuInicial == 5:
+main()
+                                       
 main()
