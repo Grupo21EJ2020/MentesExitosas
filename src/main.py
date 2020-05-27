@@ -4,6 +4,7 @@ from ClaseVideo import Video
 from Tema import Tema
 from empleado import Empleado
 from curso_tema import Curso_Tema
+from cursoTemaVideo import CursoTemaVideo
 
 def borrar():
     if name == "nt":
@@ -273,7 +274,7 @@ def main():
                 cursoTemaNuevo.agregarCursoTema()
                 input("Presione enter para continuar...")
                 borrar()
-            if submenuCursoTema == 2:
+            elif submenuCursoTema == 2:
                 idCursoTema = str(input("Digita el id de curso del tema que quieres borrar:  "))
                 ListaCursoTema = []
                 archivo = open("./archivos/curso_tema.txt", "r")
@@ -293,7 +294,7 @@ def main():
                 archivodestino.close()
                 input("Presione enter para continuar...")
                 borrar() 
-            if submenuCursoTema == 3:
+            elif submenuCursoTema == 3:
                 idCursoTema = str(input("Digita el id de curso del tema que quieres modificar:  "))
                 ListaCursoTema = []
                 archivo = open("./archivos/curso_tema.txt")
@@ -317,7 +318,7 @@ def main():
                 archivodestino.close()
                 input("Presione enter para continuar...")
                 borrar()
-            if submenuCursoTema == 4:
+            elif submenuCursoTema == 4:
                 borrar()
                 print("Lista de Temas asignados al curso\n")
                 archivo = open("./archivos/curso_tema.txt","r")
@@ -326,58 +327,68 @@ def main():
                 archivo.close()
                 input("Presione enter para continuar...")
                 borrar()
-        
-        elifmenuInicial == 6:
-            submenuVideo = int(input("1) Agregar¥n2) Borrar¥n3) Modificar¥n4) Consultar : ")) 
-            ifsubmenuVideo == 1:
-                IdVideo = str(input("Cual es el ID del Video: "))
-                Nombre = str(input("Cual es el Nombre del Video: "))
-                url = str(input("Cual es la url del Video: "))
-                FechaPublicacion = str(input("Cual es la Fecha de Publicacion del Video: "))
-                nuevoVideo = Video(IdVideo, Nombre, url, FechaPublicacion)   
-                print(nuevoVideo)
-                nuevoVideo.agregarVideo()
-            elifsubmenuVideo == 2:
-                IdVideo = (input("Dime el ID del Video que quieras borrar: "))
-                ListaVideo = []
-                archivoVideo = open("./archivos/ClaseVideo.txt","w")
-                forn inarchivoVideo:
-                    ListaVideo.append(n)ifIdVideo == n[0]:
-                        ListaVideo.remove(n)archivoVideo2 = open("./archivos/ClaseVideo2.txt", "w")
-                        forg inListaVideo:
-                            archivoVideo2.write(g)
-                            archivoVideo2.close()
-                            archivoVideo.close()
-                            archivoorigen = open("./archivos/ClaseVideo2.txt","r")
-                            archivodestino = open("./archivos/ClaseVideo.txt","w")
-                            archivodestino.write(archivoorigen.read())
-                            archivoorigen.close()
-                            archivodestino.close()
-                elifsubmenuVideo == 3:
-                    IdVideo = str(input("Escribe el ID del video que deseas modificar :"))
-                    ListaVideo = []
-                    archivoVideo = open("./archivos/ClaseVideo.txt")
-                    forn inarchivoVideo:
-                        ListaVideo.append(n)ifIdVideo == n[0]:
-                            nuevoVideo = str(input("Escriba el nombre del nuevo video: "))
-                            urlNuevo = str(input("Escribe la nueva URL del video: "))
-                            FechaPublicacionNuevo = str(input("Escribe la fecha del nuevo video: "))
-                            V = IdVideo +"|"+ nuevoVideo +"|"+ urlNuevo + "|"+ FechaPublicacionNuevo + "¥n"
-                            ListaVideo.remove(n)
-                            ListaVideo.append(V)
-                            archivoVideo2 = open("./archivos/ClaseVideo2.txt","w")
-                            forx inListaVideo:
-                                archivoVideo2.write(x)
-                                archivoVideo2.close()
-                                archivoVideo.close()
-                                archivoorigen = open("./archivos/ClaseVideo2.txt", "r")
-                                archivodestino = open("./archivos/ClaseVideo.txt","w")
-                                archivodestino.write(archivoorigen.read())
-                                archivoorigen.close()elifsubmenuVideo == 4:
-                                    archivoVideo = open("./archivos/ClaseVideo.txt","r")
-                                    forrenglon inarchivoVideo:print(f'Datos del Video: {renglon}')
-                                    archivoVideo.close()
-                                    elifmenuInicial == 5:
-main()
-                                       
+        elif menuInicial == 6:
+            submenuCursoTemaVideo = int(input("1) Agregar\n2) Borrar\n3) Modificar\n4) Consultar\nRespuesta:  "))
+            if submenuCursoTemaVideo == 1:
+                idCursoTemaVideo = str(input("Cual es el id de curso del tema del video?  "))
+                idCursoTema = str(input("Cual es el id de curso del tema?  "))
+                idVideo = str(input("Cual es el id del video?\n"))
+                cursoTemaVideoNuevo = CursoTemaVideo(idCursoTemaVideo, idCursoTema, idVideo)
+                print(cursoTemaVideoNuevo)
+                cursoTemaVideoNuevo.agregarCursoTemaVideo()
+                input("Presione enter para continuar...")
+                borrar()
+            elif submenuCursoTemaVideo == 2:
+                idCursoTemaVideo = str(input("Digita el id de curso del tema del video que quieres borrar:  "))
+                ListaCursoTemaVideo = []
+                archivo = open("./archivos/curso_tema_video.txt", "r")
+                for n in archivo:
+                 ListaCursoTemaVideo.append(n)
+                 if idCursoTemaVideo == n[0]:
+                    ListaCursoTemaVideo.remove(n)
+                    archivo2 = open("./archivos/curso_tema_video2.txt","w")
+                    for g in ListaCursoTemaVideo:
+                        archivo2.write(g)
+                    archivo2.close()
+                archivo.close()
+                archivoorigen = open("./archivos/curso_tema_video2.txt","r")
+                archivodestino = open("./archivos/curso_tema_video.txt","w")
+                archivodestino.write(archivoorigen.read())
+                archivoorigen.close()
+                archivodestino.close()
+                input("Presione enter para continuar...")
+                borrar()
+            elif submenuCursoTemaVideo == 3:
+                idCursoTemaVideo = str(input("Digita el id de curso del tema del video que quieres modificar:  "))
+                ListaCursoTemaVideo = []
+                archivo = open("./archivos/curso_tema_video.txt")
+                for n in archivo:
+                    ListaCursoTemaVideo.append(n)
+                    if idCursoTemaVideo == n[0]:
+                        idCursoTemaN = str(input("Digite el id de curso de tema nuevo:  "))
+                        idVideoN = str(input("Digite el id de video nuevo:\n  "))
+                        CTV = idCursoTemaVideo + " | " + idCursoTemaN + " | " + idVideoN + "\n"
+                        ListaCursoTemaVideo.remove(n)
+                        ListaCursoTemaVideo.append(CTV)
+                    archivo2 = open("./archivos/curso_tema_video2.txt","w")
+                    for x in ListaCursoTemaVideo:
+                        archivo2.write(x)
+                    archivo2.close()
+                archivo.close()
+                archivoorigen = open("./archivos/curso_tema_video2.txt","r")
+                archivodestino = open("./archivos/curso_tema_video.txt","w")
+                archivodestino.write(archivoorigen.read())
+                archivoorigen.close()
+                archivodestino.close()
+                input("Presione enter para continuar...")
+                borrar()
+            elif submenuCursoTemaVideo == 4:
+                borrar()
+                print("Lista de Videos asignados a un tema\n")
+                archivo = open("./archivos/curso_tema_video.txt","r")
+                for renglon in archivo:
+                    print(f"Datos del renglon: {renglon}")
+                archivo.close()
+                input("Presione enter para continuar...")
+                borrar()
 main()

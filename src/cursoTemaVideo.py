@@ -1,5 +1,5 @@
 from ClaseVideo import Video
-from Curso_tema import Curso_Tema
+from curso_tema import Curso_Tema
 class CursoTemaVideo:
     def _init_(self, idCursoTemaVideo, idCursoTema, IdVideo):
         self.__idCursoTemaVideo = idCursoTemaVideo
