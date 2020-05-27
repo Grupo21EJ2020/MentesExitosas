@@ -45,6 +45,29 @@ def main():
                 archivodestino.close()
                 input("Presione enter para continuar...")
                 borrar()
+            elif submenuCurso == 3:
+                idCurso = str(input("Digita el id del curso que quieres modificar:  "))
+                ListaCursos = []
+                archivo = open("./archivos/cursos.txt")
+                for n in archivo:
+                    ListaCursos.append(n)
+                    if idCurso == n[0]:
+                        nombreN = str(input("Digite el Nombre de curso nuevo:  "))
+                        descripcionN = str(input("Digite la descripcion de curso nueva:\n  "))
+                        idEmpleadoN = str(input("Digite el id de empleado nuevo:  "))
+                        C = idCurso + " | " + nombreN + " | " + descripcionN + " | " + idEmpleadoN + "\n"
+                        ListaCursos.remove(n)
+                        ListaCursos.append(C)
+                    archivo2 = open("./archivos/cursos2.txt","w")
+                    for x in ListaCursos:
+                        archivo2.write(x)
+                    archivo2.close()
+                archivo.close()
+                archivoorigen = open("./archivos/cursos2.txt","r")
+                archivodestino = open("./archivos/cursos.txt","w")
+                archivodestino.write(archivoorigen.read())
+                archivoorigen.close()
+                archivodestino.close()
             elif submenuCurso == 4:
                 borrar()
                 print("Lista de Cursos\n")
