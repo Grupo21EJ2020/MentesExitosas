@@ -18,6 +18,6 @@ class Curso_Tema():
         return f"El id de Curso del Tema es:  {self.__idCursoTema}\nEl id del Curso es:  {self.__idCurso}\nEl id del Tema es:  {self.__idTema}"
 
     def agregarCursoTema(self):
-        archivo = open("curso_tema.txt","a")
+        archivo = open("./archivos/curso_tema.txt","a")
         archivo.write(self.__idCursoTema + " | " + self.__idCurso + " | " + self.__idTema + "\n")
         archivo.close()

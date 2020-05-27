@@ -24,6 +24,6 @@ class Tema:
         print(f"{self.__idTema: <10}{self.__Nombre}")
 
     def agregarTema(self):
-        archivo = open("Temas.txt","a")
+        archivo = open("./archivos/temas.txt","a")
         archivo.write(self.__idTema + "|" + self.__Nombre + "\n")
         archivo.close()

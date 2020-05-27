@@ -15,7 +15,7 @@ class CursoTemaVideo:
         self.__idCursoTemaVideo = valor
 
     def agregarCursoTemaVideo (self):
-        archivo = open("CursoTemaVideo", "a")
+        archivo = open("./archivos/curso_tema_video.txt", "a")
         archivo.write(self.__idCursoTemaVideo + "|" + self.__idCursoTema + "|" + self.__IdVideo + "\n")
         archivo.close()
 
