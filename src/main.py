@@ -141,6 +141,29 @@ def main():
                 archivoorigen.close()
                 archivodestino.close()
             
+            elif submenuVideo == 3:
+                IdVideo = str(input("Escribe el ID del video que deseas modificar :"))
+                ListaVideo = []
+                archivoVideo = open("./archivos/ClaseVideo.txt")
+                for n in archivoVideo:
+                    ListaVideo.append(n)
+                    if IdVideo == n[0]:
+                        nuevoVideo = str (input("Escriba el nombre del nuevo video: "))
+                        urlNuevo = str(input("Escribe la nueva URL del video: "))
+                        FechaPublicacionNuevo = str(input("Escribe la fecha del nuevo video: "))
+                        V = IdVideo +"|" + nuevoVideo +"|" + urlNuevo + "|" + FechaPublicacionNuevo + "\n" 
+                        ListaVideo.remove(n)
+                        ListaVideo.append(c)
+                    archivoVideo2 = open ("./archivos/ClaseVideo2.txt","w")
+                    for x in ListaVideo:
+                        archivoVideo2.write(x)
+                    archivoVideo2.close()
+                archivoVideo.close()
+                archivoorigen = open ("./archivos/ClaseVideo2.txt", "r")
+                archivodestino = open ("./archivos/ClaseVideo.txt","w")
+                archivodestino.write(archivoorigen.read())
+                archivoorigen.close()
+                
             elif submenuVideo == 4:
                 archivoVideo = open("./archivos/ClaseVideo.txt","r")
                 for renglon in archivoVideo:
