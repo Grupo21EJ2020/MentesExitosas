@@ -33,5 +33,5 @@ class Empleado():
 
     def agregarEmpleado(self):
         archivo = open("empleados.txt","a")
-        archivo.write(self.__idEmpleado + " | " self.__nombre + " | " self.__direccion + "\n")
+        archivo.write(self.__idEmpleado + " | " + self.__nombre + " | " + self.__direccion + "\n")
         archivo.close()
