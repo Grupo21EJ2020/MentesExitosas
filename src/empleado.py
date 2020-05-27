@@ -32,6 +32,6 @@ class Empleado():
         return f"El id del empleado es: {self.__idEmpleado}\nEl nombre del empleado es: {self.__nombre}\nLa direccion del empleado es: {self.__direccion}"
 
     def agregarEmpleado(self):
-        archivo = open("empleados.txt","a")
+        archivo = open("./archivos/empleados.txt","a")
         archivo.write(self.__idEmpleado + " | " + self.__nombre + " | " + self.__direccion + "\n")
         archivo.close()
