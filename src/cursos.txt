@@ -1,1 +1,0 @@
-1 | Programacion Avanzada | Este es un curso sobre python | 1
