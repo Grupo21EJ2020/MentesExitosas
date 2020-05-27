@@ -1,6 +1,14 @@
+from os import system, name
 from curso import Curso
 from ClaseVideo import Video
 from Tema import Tema
+
+def borrar():
+    if name == "nt":
+        system("cls")
+    else:
+        system("clear")
+
 def main():
     menuInicial = 0
     while menuInicial != 7:
@@ -15,6 +23,8 @@ def main():
                 cursoNuevo = Curso(idCurso,nombre,descripcion,idEmpleado)
                 print(cursoNuevo)
                 cursoNuevo.agregarCurso()
+                input("Presione enter para continuar...")
+                borrar()
             elif submenuCurso == 2:
                 idCurso = str(input("Digita el id del curso que quieres borrar:  "))
                 ListaCursos = []
@@ -33,11 +43,17 @@ def main():
                 archivodestino.write(archivoorigen.read())
                 archivoorigen.close()
                 archivodestino.close()
+                input("Presione enter para continuar...")
+                borrar()
             elif submenuCurso == 4:
+                borrar()
+                print("Lista de Cursos\n")
                 archivo = open("./archivos/cursos.txt","r")
                 for renglon in archivo:
                     print(f"Datos del renglon: {renglon}")
                 archivo.close()
+                input("Presione enter para continuar...")
+                borrar()
 
         if menuInicial == 3:
             submenuTema = int(input("1) Agregar\n2) Borrar\n3) Modificar\n4) Consultar\nRespuesta:  "))
