@@ -317,4 +317,13 @@ def main():
                 archivodestino.close()
                 input("Presione enter para continuar...")
                 borrar()
+            if submenuCursoTema == 4:
+                borrar()
+                print("Lista de Temas asignados al curso\n")
+                archivo = open("./archivos/curso_tema.txt","r")
+                for renglon in archivo:
+                    print(f"Datos del renglon: {renglon}")
+                archivo.close()
+                input("Presione enter para continuar...")
+                borrar()
 main()
