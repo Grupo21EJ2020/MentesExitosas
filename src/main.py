@@ -2,6 +2,7 @@ from os import system, name
 from curso import Curso
 from ClaseVideo import Video
 from Tema import Tema
+from empleado import Empleado
 
 def borrar():
     if name == "nt":
@@ -13,7 +14,72 @@ def main():
     menuInicial = 0
     while menuInicial != 7:
         menuInicial = int(input("1) Empleados\n2) Cursos\n3) Temas\n4) Videos\n5) Temas Asignados\n6) Administracion de Videos\n7) Salir\nRespuesta:  "))
-        if menuInicial == 2:
+        if menuInicial == 1:
+            submenuEmpleado = int(input("1) Agregar\n2) Borrar\n3) Modificar\n4) Consultar\nRespuesta:  "))
+            if submenuEmpleado == 1:
+                idEmpleado = str(input("Cual es el id del empleado?  "))
+                nombre = str(input("Cual es el nombre del empleado?  "))
+                direccion = str(input("Cual es la direccion del empleado?\n"))
+                empleadoNuevo = Empleado(idEmpleado, nombre, direccion)
+                print(empleadoNuevo)
+                empleadoNuevo.agregarEmpleado()
+                input("Presione enter para continuar...")
+                borrar()
+            if submenuEmpleado == 2:
+                idEmpleado = str(input("Digita el id del empleado que quieres borrar:  "))
+                ListaEmpleados = []
+                archivo = open("./archivos/empleados.txt", "r")
+                for n in archivo:
+                    ListaEmpleados.append(n)
+                    if idEmpleado == n[0]:
+                        ListaEmpleados.remove(n)
+                    archivo2 = open("./archivos/empleados2.txt","w")
+                    for g in ListaEmpleados:
+                        archivo2.write(g)
+                    archivo2.close()
+                archivo.close()
+                archivoorigen = open("./archivos/empleados2.txt","r")
+                archivodestino = open("./archivos/empleados.txt","w")
+                archivodestino.write(archivoorigen.read())
+                archivoorigen.close()
+                archivodestino.close()
+                input("Presione enter para continuar...")
+                borrar()
+            if submenuEmpleado == 3:
+                idEmpleado = str(input("Digita el id del empleado que quieres modificar:  "))
+                ListaEmpleados = []
+                archivo = open("./archivos/empleados.txt")
+                for n in archivo:
+                    ListaEmpleados.append(n)
+                    if idEmpleado == n[0]:
+                        nombreN = str(input("Digite el Nombre de empleado nuevo:  "))
+                        direccionN = str(input("Digite la direccion de empleado nueva:\n  "))
+                        E = idEmpleado + " | " + nombreN + " | " + direccionN + "\n"
+                        ListaEmpleados.remove(n)
+                        ListaEmpleados.append(E)
+                    archivo2 = open("./archivos/empleados2.txt","w")
+                    for x in ListaEmpleados:
+                        archivo2.write(x)
+                    archivo2.close()
+                archivo.close()
+                archivoorigen = open("./archivos/empleados2.txt","r")
+                archivodestino = open("./archivos/empleados.txt","w")
+                archivodestino.write(archivoorigen.read())
+                archivoorigen.close()
+                archivodestino.close()
+                input("Presione enter para continuar...")
+                borrar()
+            elif submenuEmpleado == 4:
+                borrar()
+                print("Lista de Empleados\n")
+                archivo = open("./archivos/empleados.txt","r")
+                for renglon in archivo:
+                    print(f"Datos del renglon: {renglon}")
+                archivo.close()
+                input("Presione enter para continuar...")
+                borrar()
+        
+        elif menuInicial == 2:
             submenuCurso = int(input("1) Agregar\n2) Borrar\n3) Modificar\n4) Consultar\nRespuesta:  "))
             if submenuCurso == 1:
                 idCurso = str(input("Cual es el id del curso?  "))
@@ -68,6 +134,8 @@ def main():
                 archivodestino.write(archivoorigen.read())
                 archivoorigen.close()
                 archivodestino.close()
+                input("Presione enter para continuar...")
+                borrar()
             elif submenuCurso == 4:
                 borrar()
                 print("Lista de Cursos\n")
@@ -78,7 +146,7 @@ def main():
                 input("Presione enter para continuar...")
                 borrar()
 
-        if menuInicial == 3:
+        elif menuInicial == 3:
             submenuTema = int(input("1) Agregar\n2) Borrar\n3) Modificar\n4) Consultar\nRespuesta:  "))
             if submenuTema== 1:
                 idTema = str(input("Cual es el id del tema?  "))
@@ -134,7 +202,7 @@ def main():
                     print(f"Datos del Tema: {renglon}")
                 archivoTema.close()
 
-        if menuInicial == 4:
+        elif menuInicial == 4:
             submenuVideo = int(input("1) Agregar\n2) Borrar\n3) Modificar\n4) Consultar : ")) 
             if submenuVideo == 1:
                 IdVideo = str(input("Cual es el ID del Video: "))
@@ -145,7 +213,7 @@ def main():
                 print(nuevoVideo)
                 nuevoVideo.agregarVideo()
             
-            if submenuVideo == 2:
+            elif submenuVideo == 2:
                 IdVideo = (input("Dime el ID del Video que quieras borrar: "))
                 ListaVideo = []
                 archivoVideo = open("./archivos/ClaseVideo.txt","w")
@@ -176,7 +244,7 @@ def main():
                         FechaPublicacionNuevo = str(input("Escribe la fecha del nuevo video: "))
                         V = IdVideo +"|" + nuevoVideo +"|" + urlNuevo + "|" + FechaPublicacionNuevo + "\n" 
                         ListaVideo.remove(n)
-                        ListaVideo.append(c)
+                        ListaVideo.append(V)
                     archivoVideo2 = open ("./archivos/ClaseVideo2.txt","w")
                     for x in ListaVideo:
                         archivoVideo2.write(x)
