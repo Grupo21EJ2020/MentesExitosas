@@ -3,6 +3,7 @@ from curso import Curso
 from ClaseVideo import Video
 from Tema import Tema
 from empleado import Empleado
+from curso_tema import Curso_Tema
 
 def borrar():
     if name == "nt":
@@ -260,4 +261,60 @@ def main():
                 for renglon in archivoVideo:
                     print(f'Datos del Video: {renglon}')
                 archivoVideo.close()
+
+        elif menuInicial == 5:
+            submenuCursoTema = int(input("1) Agregar\n2) Borrar\n3) Modificar\n4) Consultar\nRespuesta:  "))
+            if submenuCursoTema == 1:
+                idCursoTema = str(input("Cual es el id de curso del tema?  "))
+                idCurso = str(input("Cual es el id del curso?  "))
+                idTema = str(input("Cual es el id del tema?\n"))
+                cursoTemaNuevo = Curso_Tema(idCursoTema, idCurso, idTema)
+                print(cursoTemaNuevo)
+                cursoTemaNuevo.agregarCursoTema()
+                input("Presione enter para continuar...")
+                borrar()
+            if submenuCursoTema == 2:
+                idCursoTema = str(input("Digita el id de curso del tema que quieres borrar:  "))
+                ListaCursoTema = []
+                archivo = open("./archivos/curso_tema.txt", "r")
+                for n in archivo:
+                 ListaCursoTema.append(n)
+                 if idCursoTema == n[0]:
+                    ListaCursoTema.remove(n)
+                    archivo2 = open("./archivos/curso_tema2.txt","w")
+                    for g in ListaCursoTema:
+                        archivo2.write(g)
+                    archivo2.close()
+                archivo.close()
+                archivoorigen = open("./archivos/curso_tema2.txt","r")
+                archivodestino = open("./archivos/curso_tema.txt","w")
+                archivodestino.write(archivoorigen.read())
+                archivoorigen.close()
+                archivodestino.close()
+                input("Presione enter para continuar...")
+                borrar() 
+            if submenuCursoTema == 3:
+                idCursoTema = str(input("Digita el id de curso del tema que quieres modificar:  "))
+                ListaCursoTema = []
+                archivo = open("./archivos/curso_tema.txt")
+                for n in archivo:
+                    ListaCursoTema.append(n)
+                    if idCursoTema == n[0]:
+                        idCursoN = str(input("Digite el id de curso nuevo:  "))
+                        idTemaN = str(input("Digite el id de tema  nuevo:\n  "))
+                        CT = idCursoTema + " | " + idCursoN + " | " + idTemaN + "\n"
+                        ListaCursoTema.remove(n)
+                        ListaCursoTema.append(CT)
+                    archivo2 = open("./archivos/curso_tema2.txt","w")
+                    for x in ListaCursoTema:
+                        archivo2.write(x)
+                    archivo2.close()
+                archivo.close()
+                archivoorigen = open("./archivos/curso_tema2.txt","r")
+                archivodestino = open("./archivos/curso_tema.txt","w")
+                archivodestino.write(archivoorigen.read())
+                archivoorigen.close()
+                archivodestino.close()
+                input("Presione enter para continuar...")
+                borrar()
 main()
