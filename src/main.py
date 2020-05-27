@@ -4,7 +4,7 @@ from ClaseVideo import Video
 from Tema import Tema
 from empleado import Empleado
 from curso_tema import Curso_Tema
-from cursoTemaVideo import CursoTemaVideo
+from cursoTemaVideo import Curso_Tema_Video
 
 def borrar():
     if name == "nt":
@@ -218,18 +218,18 @@ def main():
             elif submenuVideo == 2:
                 IdVideo = (input("Dime el ID del Video que quieras borrar: "))
                 ListaVideo = []
-                archivoVideo = open("./archivos/ClaseVideo.txt","w")
+                archivoVideo = open("./archivos/videos.txt","w")
                 for n in archivoVideo:
                     ListaVideo.append(n)
                     if IdVideo == n[0]:
                         ListaVideo.remove(n)
-                    archivoVideo2 = open ("./archivos/ClaseVideo2.txt", "w")
+                    archivoVideo2 = open ("./archivos/videos2.txt", "w")
                     for g in ListaVideo:
                         archivoVideo2.write(g)
                     archivoVideo2.close()
                 archivoVideo.close()
-                archivoorigen = open("./archivos/ClaseVideo2.txt","r")
-                archivodestino = open("./archivos/ClaseVideo.txt","w")
+                archivoorigen = open("./archivos/videos2.txt","r")
+                archivodestino = open("./archivos/videos.txt","w")
                 archivodestino.write(archivoorigen.read())
                 archivoorigen.close()
                 archivodestino.close()
@@ -237,7 +237,7 @@ def main():
             elif submenuVideo == 3:
                 IdVideo = str(input("Escribe el ID del video que deseas modificar :"))
                 ListaVideo = []
-                archivoVideo = open("./archivos/ClaseVideo.txt")
+                archivoVideo = open("./archivos/videos.txt")
                 for n in archivoVideo:
                     ListaVideo.append(n)
                     if IdVideo == n[0]:
@@ -247,18 +247,18 @@ def main():
                         V = IdVideo +"|" + nuevoVideo +"|" + urlNuevo + "|" + FechaPublicacionNuevo + "\n" 
                         ListaVideo.remove(n)
                         ListaVideo.append(V)
-                    archivoVideo2 = open ("./archivos/ClaseVideo2.txt","w")
+                    archivoVideo2 = open ("./archivos/videos2.txt","w")
                     for x in ListaVideo:
                         archivoVideo2.write(x)
                     archivoVideo2.close()
                 archivoVideo.close()
-                archivoorigen = open ("./archivos/ClaseVideo2.txt", "r")
-                archivodestino = open ("./archivos/ClaseVideo.txt","w")
+                archivoorigen = open ("./archivos/videos2.txt", "r")
+                archivodestino = open ("./archivos/videos.txt","w")
                 archivodestino.write(archivoorigen.read())
                 archivoorigen.close()
                 
             elif submenuVideo == 4:
-                archivoVideo = open("./archivos/ClaseVideo.txt","r")
+                archivoVideo = open("./archivos/videos.txt","r")
                 for renglon in archivoVideo:
                     print(f'Datos del Video: {renglon}')
                 archivoVideo.close()
@@ -268,7 +268,7 @@ def main():
             if submenuCursoTema == 1:
                 idCursoTema = str(input("Cual es el id de curso del tema?  "))
                 idCurso = str(input("Cual es el id del curso?  "))
-                idTema = str(input("Cual es el id del tema?\n"))
+                idTema = str(input("Cual es el id del tema?  "))
                 cursoTemaNuevo = Curso_Tema(idCursoTema, idCurso, idTema)
                 print(cursoTemaNuevo)
                 cursoTemaNuevo.agregarCursoTema()
@@ -332,8 +332,8 @@ def main():
             if submenuCursoTemaVideo == 1:
                 idCursoTemaVideo = str(input("Cual es el id de curso del tema del video?  "))
                 idCursoTema = str(input("Cual es el id de curso del tema?  "))
-                idVideo = str(input("Cual es el id del video?\n"))
-                cursoTemaVideoNuevo = CursoTemaVideo(idCursoTemaVideo, idCursoTema, idVideo)
+                idVideo = str(input("Cual es el id del video?  "))
+                cursoTemaVideoNuevo = Curso_Tema_Video(idCursoTemaVideo, idCursoTema, idVideo)
                 print(cursoTemaVideoNuevo)
                 cursoTemaVideoNuevo.agregarCursoTemaVideo()
                 input("Presione enter para continuar...")

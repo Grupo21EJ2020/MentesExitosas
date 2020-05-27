@@ -1,4 +1,4 @@
-class Video:
+class Video():
     def __init__(self, IdVideo, Nombre, url, FechaPublicacion):
         self.__IdVideo = IdVideo
         self.__Nombre = Nombre
@@ -41,9 +41,12 @@ class Video:
         print (f"{'ID Video' :<10}{'Nombre' :<20}{'URL' :<10}{'Fecha de Publicacion':<20}")
         print (f"{self.__IdVideo:<10}{self.__Nombre:<20}{self.__url:<10}{self.__FechaPublicacion:<20}")
 
+    def __str__(self):
+        return f"\n{self.__IdVideo}\n{self.__Nombre}\n{self.__url}\n{self.__FechaPublicacion}\n"
+
     def agregarVideo(self):
         archivotxt = open ('./archivos/videos.txt','a', encoding='utf8')
-        archivotxt.write (self.__IdVideo + '|' + self.__Nombre + '|'+ self.__url +'|' + self.__FechaPublicacion  )
+        archivotxt.write (self.__IdVideo + ' | ' + self.__Nombre + ' | ' + self.__url + ' | ' + self.__FechaPublicacion + '\n')
         archivotxt.close()
 
 

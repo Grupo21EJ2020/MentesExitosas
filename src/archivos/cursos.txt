@@ -1,2 +1,3 @@
 3 | biologia | biologia | 22
 5 | fisica | fisica | 44
+6 | BIOLOGIA | ESTE CURSO ES SOBRE BIOLOGIA | 99
